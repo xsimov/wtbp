@@ -28,7 +28,7 @@ module Wtbp
     # config.i18n.default_locale = :de
 
     config.before_configuration do
-      if Rails.env == 'development' do
+      if Rails.env == 'development'
         env_file = File.join(Rails.root, 'config', 'social_keys.yml')
         file_content = YAML::load(IO.read(env_file)).split("\"")
         
