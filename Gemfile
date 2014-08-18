@@ -29,8 +29,7 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -41,9 +40,9 @@ gem 'omniauth-twitter'
 gem 'devise'
 
 group :test do
-  gem 'cucumber-rails', :require => false
-  # database_cleaner is not required, but highly recommended
+  gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'capybara-webkit'
 
   group :development do
     gem 'pry'
