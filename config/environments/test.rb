@@ -33,6 +33,13 @@ Rails.application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+  
+  Rails.application.routes.default_url_options[:host] = 'example.com'
+  
+  config.after_initialize do
+    ActiveRecord::Base.logger = Rails.logger.clone
+    ActiveRecord::Base.logger.level = Logger::INFO
+  end
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
