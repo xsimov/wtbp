@@ -19,5 +19,7 @@ deploy:
   api_key:
     secure: pEM1Z/UkaKk3P91LMLHVoDPM2e2l0K6d/af4uVYsKFRAhMQZgvPJbhxq/Tncr4nOX1N64iADe1YIPRklgIcXIStZWDZ1ICMnT/O1D8I05S/h99zc5rNjJJZbALeEMFCOzpABnt6ktb3EvLRqclaTNkAWODNh9oZ4wGl/2opDC8A=
   app: wtbp
+  run:
+  - "rake db:drop db:setup"
 notifications:
   slack: ironhack:i7ltF7cDqe25xhRcZYyZ2gJV
