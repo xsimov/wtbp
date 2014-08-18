@@ -1,0 +1,17 @@
+language: ruby
+rvm:
+- 2.1.2
+before_scripts:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+addons:
+  postgresql: '9.3'
+test:
+  adapter: postgresql
+  database: wtbp_test
+  username: postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: pEM1Z/UkaKk3P91LMLHVoDPM2e2l0K6d/af4uVYsKFRAhMQZgvPJbhxq/Tncr4nOX1N64iADe1YIPRklgIcXIStZWDZ1ICMnT/O1D8I05S/h99zc5rNjJJZbALeEMFCOzpABnt6ktb3EvLRqclaTNkAWODNh9oZ4wGl/2opDC8A=
+  app: wtbp
