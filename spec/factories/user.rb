@@ -7,6 +7,10 @@ FactoryGirl.define do
 
     factory :user_authed do
       confirmed_at Time.now
+
+      factory :user_with_instruments do
+        association :instrument
+      end
     end
   end
 end

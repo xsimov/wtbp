@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   # GET /users/:id.:format
   def show
-    # authorize! :read, @user
+    @musician = User.find(params[:id])
   end
 
   # GET /users/:id/edit
