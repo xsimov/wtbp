@@ -49,7 +49,7 @@ group :test do
     gem 'pry'
     gem 'faker'
     gem 'rspec-rails'
-    gem 'factory_girl'
+    gem 'factory_girl_rails'
   end
   
 end
