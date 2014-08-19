@@ -3,8 +3,8 @@ Given(/^I go to the sign up page$/) do
 end
 
 When(/^I put my data$/) do
-  fill_in "Username", with: "xsimov"
-  fill_in "Email", with: "xsimov@gmail.com"
+  fill_in "Username", with: "kagdkajhdfkajhd"
+  fill_in "Email", with: "someone@somemail.som"
   click_button "Sign up!"
 end
 
