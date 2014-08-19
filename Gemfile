@@ -35,10 +35,10 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'devise'
+# gem 'omniauth'
+# gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+# gem 'devise'
 
 group :test do
   gem 'cucumber-rails', :require => false
