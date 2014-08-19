@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Wtbp</title>
+    <title>wtbp?</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -9,10 +9,11 @@
   <body>
     <nav class="navbar">
       <ul>
-        <li><a href="#"></a>Home</li>
-        <li><a href="#"></a>Profile</li>
-        <li><a href="#"></a>Bands</li>
-        <li><a href="#"></a>Concerts</li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Bands</a></li>
+        <li><a href="#">Concerts</a></li>
+        <li><a data-method="delete" href="/users/sign_out">Sign out</a></li>
       </ul>
       <img src="assets/cbaix_logo.png">
     </nav>

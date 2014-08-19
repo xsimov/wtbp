@@ -2,7 +2,7 @@ include Warden::Test::Helpers
 Warden.test_mode!
 
 Given(/^I am a signed in musician$/) do
-  @user = FactoryGirl.create(:user)
+  @user = FactoryGirl.create(:user_authed)
   visit '/users/sign_in'
   fill_in 'Email', with: @user.email
   fill_in 'Password', with: @user.password
@@ -14,9 +14,10 @@ When(/^I go to the edit profile page$/) do
 end
 
 When(/^I change my first name$/) do
-  fill_in "First Name", with: "kail"
+  fill_in "First name", with: "kail"
+  click_button "Update information"
 end
 
 Then(/^name change is commited$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(User.find(@user.id).name).to eq("kail")
 end
