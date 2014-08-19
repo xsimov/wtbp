@@ -3,7 +3,7 @@ Warden.test_mode!
 
 Given(/^I am a signed in musician$/) do
   @user = FactoryGirl.create(:user)
-  visit '/'
+  visit '/users/sign_in'
   fill_in 'Email', with: @user.email
   fill_in 'Password', with: @user.password
   click_button "Log in"
