@@ -1,0 +1,9 @@
+<%= form_for @band do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/>
+  <%= f.label :year %><br/>
+  <%= f.text_field :year %><br/>
+  <%= f.label :styles %> <span class="comment">(separated by commas)</span><br/>
+  <%= f.text_field :styles %><br/>
+  <%= f.submit "Create band!" %>
+<% end %>
