@@ -2,11 +2,7 @@ Thanks for registering! Have fun discovering new music!
 
 Instruments played by <%= @musician.username %>:
 <ul>
-<%  unless @musician.instruments.empty?
-      @musician.instruments.each do |instr| %>
-        <li><%= instr.name %></li>
-    <% end %>
-  <% else %>
-    <li>No instruments added yet.</li>
-<% end %>
+  <% display_instruments_list.each do |instr| %>
+    <li><%= instr.name %></li>
+  <% end %>
 </ul>
