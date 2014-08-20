@@ -37,8 +37,8 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = 'www.example.com'
   
   config.after_initialize do
-    ActiveRecord::Base.logger = Rails.logger.clone
-    ActiveRecord::Base.logger.level = Logger::INFO
+    # ActiveRecord::Base.logger = Rails.logger.clone
+    # ActiveRecord::Base.logger.level = Logger::INFO
   end
 
   # Raises error for missing translations

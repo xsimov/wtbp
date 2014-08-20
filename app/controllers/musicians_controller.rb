@@ -5,11 +5,10 @@ class MusiciansController < ApplicationController
   end
 
   def create
-    new_musician = Musician.new musician_params
-    new_musician.save!
-    redirect_to musician_path(new_musician)
+    @musician = Musician.new musician_params
+    @musician.save!
+    redirect_to musician_path(@musician)
   rescue ActiveRecord::RecordInvalid
-    @musician = new_musician
     render 'new'
   end
 
