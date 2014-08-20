@@ -19,6 +19,7 @@ RSpec.describe MusiciansController, :type => :controller do
       expect(response).to render_template(:new)
       expect(assigns(:musician)).to be_a_new(Musician)
     end
+
   end
 
 end

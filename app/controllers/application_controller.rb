@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def welcome
     render 'layouts/welcome'
   end
+
+  def current_user
+    Musician.find(session[:user_id]) unless session[:user_id].nil?
+  end
+
 end

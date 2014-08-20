@@ -7,6 +7,7 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new band_params
+    @band.members << current_user
     @band.save!
     redirect_to band_path(@band)
   rescue
@@ -18,7 +19,7 @@ class BandsController < ApplicationController
   end
 
   def show
-    
+    @band = Band.find(params[:id])
   end
 
   private
