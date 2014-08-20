@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
-  get '/' => 'application#welcome'
+  root 'application#welcome'
+
+  resources :musicians, only: [:new, :create, :show]
 
 end
