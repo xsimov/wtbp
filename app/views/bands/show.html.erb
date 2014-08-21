@@ -1,6 +1,15 @@
-<p>List of members:</p>
-<ul>
-  <% @band.members.each do |member| %>
-    <li><%= member.username %></li>
-  <% end %>
-</ul>
+<section class="band_info">
+  <input id="band_id" type="hidden" value="<%= @band.id %>" />
+  <p>Band name: <span id="band_name"><%= @band.name %></span></p>
+  <p>List of members:</p>
+  <ul id="member_list">
+    <% @band.members.each do |member| %>
+      <li><%= member.username %></li>
+    <% end %>
+  </ul>
+</section>
+<button id="add_member">Add new member!</button>
+
+<div id="all_musicians">
+  <ul></ul>
+</div>

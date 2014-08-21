@@ -2,7 +2,7 @@ class BandsController < ApplicationController
 
   def new
     @band = Band.new
-    parse_styles
+    @band.parse_styles
   end
 
   def create
@@ -22,17 +22,22 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
   end
 
-  private
-
-  def parse_styles
-    styles_str = ""
-    @band.styles.each do |style|
-      styles_str += style + ", "
-    end
-    @band.styles = styles_str[0..-3]
+  def addmember
+    json_to_fields
+    band = Band.find(@band_id)
+    band.add_a_member(@username)
+    render text: "OK", status: 200
   end
+
+  private
 
   def band_params
     params.require(:band).permit(:name, :year, styles: [])
+  end
+
+  def json_to_fields
+    params = JSON.parse(request.body.read)
+    @band_id = params["band_id"]
+    @username = params["username"]
   end
 end

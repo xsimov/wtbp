@@ -10,6 +10,20 @@ class Band < ActiveRecord::Base
     self.musicians
   end
 
+  def parse_styles
+    styles_str = ""
+    self.styles.each do |style|
+      styles_str += style + ", "
+    end
+    self.styles = styles_str[0..-3]
+  end
+
+  def add_a_member(username)
+    new_member = Musician.find_by(username: username)
+    self.members << new_member unless self.members.include? new_member
+    self.save!
+  end
+
   private
 
   def year_is_not_future
