@@ -29,6 +29,11 @@ class BandsController < ApplicationController
     render text: "OK", status: 200
   end
 
+  def members
+    band = Band.find(params[:id])
+    @members = band.members
+  end
+
   private
 
   def band_params

@@ -15,7 +15,7 @@
     }
 
     function writeList(){
-      musiciansList = retrieveList();
+      musiciansList = retrieveList("/musicians");
       musiciansList.forEach(function(element){
         li = document.createElement('li');
         li.id = element.username;
@@ -32,35 +32,48 @@
 
     function addMemberToBand(event){
       var musicianUsername = event.target.id;
-      console.log(musicianUsername);
       refreshList(musicianUsername);
     }
 
+    function regenerateList(){
+      var ul = document.getElementById('member_list');
+      ul.innerHTML = '';
+      var url = ('/bands/' + bandId + '/members');
+      var bandMembers = retrieveList(url);
+      bandMembers.forEach(function(element){
+        li = document.createElement('li');
+        li.id = element.username;
+        li.innerHTML = element.username;
+        ul.appendChild(li);
+      });
+    }
+
+    function refreshList(newName){
+      var xhReqPost = new XMLHttpRequest();
+      xhReqPost.open("POST", '/bands/addmember');
+      xhReqPost.send(JSON.stringify({'username': newName, 'band_id': parseInt(bandId)}));
+      regenerateList();
+    }
+
+
+    function retrieveList(url){
+      var xhReq = new XMLHttpRequest();
+      xhReq.open("GET", url, false);
+      xhReq.send(null);
+      var serverResponse = xhReq.responseText;
+      return JSON.parse(serverResponse).musicians_list;
+    }
+
+    function toggleDisplay(element){
+      if (element.style.display === 'none'){
+        element.style.display = 'block';
+        return 'on';
+      }
+      element.style.display = 'none';
+      return null;
+    }
   });
 
-  function refreshList(newName){
-    var xhReqPost = new XMLHttpRequest();
-    xhReqPost.open("POST", '/bands/addmember');
-    console.log(JSON.stringify({'username': newName, 'band_id': parseInt(bandId)}));
-    xhReqPost.send(JSON.stringify({'username': newName, 'band_id': bandId}));
-  }
-
-  function retrieveList(){
-    var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", "/musicians", false);
-    xhReq.send(null);
-    var serverResponse = xhReq.responseText;
-    return JSON.parse(serverResponse).musicians_list;
-  }
-
-  function toggleDisplay(element){
-    if (element.style.display === 'none'){
-      element.style.display = 'block';
-      return 'on';
-    }
-    element.style.display = 'none';
-    return null;
-  }
 }
 
 $('document').ready(addNewMembers);

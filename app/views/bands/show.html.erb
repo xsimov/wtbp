@@ -13,3 +13,6 @@
 <div id="all_musicians">
   <ul></ul>
 </div>
+
+
+@vehicles = Vehicle.where(client_id: current_user.client_id).joins(:category, :vehicle_status).includes(:venue) 
