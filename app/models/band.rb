@@ -1,6 +1,7 @@
 class Band < ActiveRecord::Base
 
   has_and_belongs_to_many :musicians
+  has_many :concerts
   
   validates :name, :year, presence: true
   validates :name, uniqueness: true

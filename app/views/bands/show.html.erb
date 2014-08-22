@@ -8,8 +8,13 @@
     <% end %>
   </ul>
 </section>
-<button id="add_member">Add new member!</button>
+<button id="add_member">Add a new member!</button>
+<button id="add_concert">Add a new concert!</button>
 
-<div id="all_musicians">
+<div id="all_musicians" class="ask_for_input">
   <ul></ul>
+</div>
+
+<div id="new_concert" class="ask_for_input">
+  <%= render 'concerts/form' %>
 </div>

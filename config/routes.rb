@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'application#welcome'
   resources :musicians, only: [:new, :create, :show]
-  resources :bands
+  resources :bands do
+    resources :concerts, only: [:create, :show]
+  end
 
 # API points for the JS
 

@@ -31,13 +31,33 @@ end
 
 When(/^I want to add a new member$/) do
   @musician = FactoryGirl.create(:musician)
-  click_button "Add new member!"
+  click_button "Add a new member!"
 end
 
 Then(/^I can choose it from all the registered members$/) do
   find("##{@musician.username}").click
+  find("##{@musician.username}").click
+  find("##{@musician.username}").click
+  # I don't know why... REALLY!
 end
 
 Then(/^the musician I chose is in the list$/) do
   expect(find('#member_list')).to have_content @musician.username
+end
+
+When(/^I want to add a concert$/) do
+  click_button "Add a new concert!"
+end
+
+Then(/^I can enter the specifications$/) do
+  fill_in "Date", with: "5/9/2014"
+  fill_in "Hour", with: "19:00"
+  fill_in "Place", with: "Cafe Rene"
+  fill_in "Additional info", with: "Tarírarí"
+  click_button "Save concert!"
+end
+
+Then(/^I get redirected to that concert page$/) do
+  concert = Concert.find_by_place("Cafe Rene")
+  expect(current_path).to eq(band_concert_path(concert.band_id, concert.id))
 end

@@ -64,14 +64,6 @@
       return JSON.parse(serverResponse).musicians_list;
     }
 
-    function toggleDisplay(element){
-      if (element.style.display === 'none'){
-        element.style.display = 'block';
-        return 'on';
-      }
-      element.style.display = 'none';
-      return null;
-    }
   });
 
 }
