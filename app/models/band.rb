@@ -10,7 +10,7 @@ class Band < ActiveRecord::Base
     self.musicians
   end
 
-  def musicians
+  def get_members_with_positions
     musicians = Musician.joins(:bands).where("bands_musicians.band_id = #{self.id}")
     musicians.each do |musician|
       query = "SELECT position FROM bands_musicians WHERE band_id = #{self.id} AND musician_id = #{musician.id}"

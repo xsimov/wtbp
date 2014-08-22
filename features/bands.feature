@@ -18,3 +18,9 @@ Feature: Bands can be created as a group of musicians that has some own properti
     When I want to add a new member
     Then I can choose it from all the registered members
     And the musician I chose is in the list
+
+  Scenario: A band member wants to add a concert
+    Given I go to a band profile
+    When I want to add a concert
+    Then I can enter the specifications
+    And I get redirected to that concert page

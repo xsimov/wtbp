@@ -19,8 +19,8 @@ RSpec.describe BandsController, :type => :controller do
     it "redirects to the band profile page if the data is valid" do
       band = FactoryGirl.build(:band_with_many_styles)
       expect(band).to be_valid
-
       post :create, band: band.attributes
+
       new_band = Band.find_by(name: band.name)
       expect(response).to redirect_to(band_path(new_band.id))
     end
