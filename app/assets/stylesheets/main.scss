@@ -1,5 +1,9 @@
 @import 'variables';
 
+html {
+  font-family: $corporateFonts;
+}
+
 article {
   padding: 0 $navBarWidth;
 }
