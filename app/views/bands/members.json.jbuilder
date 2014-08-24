@@ -1,1 +1,1 @@
-json.musicians_list @members, :username
+json.musicians_list @members, :username, :position

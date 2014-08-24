@@ -27,12 +27,13 @@ class BandsController < ApplicationController
     json_to_fields
     band = Band.find(@band_id)
     band.add_a_member(@username)
+    band.add_position(@username, @position)
     render text: "OK", status: 200
   end
 
   def members
     band = Band.find(params[:id])
-    @members = band.members
+    @members = band.get_members_with_position
   end
 
   private
@@ -45,5 +46,6 @@ class BandsController < ApplicationController
     params = JSON.parse(request.body.read)
     @band_id = params["band_id"]
     @username = params["username"]
+    @position = params["position"]
   end
 end
