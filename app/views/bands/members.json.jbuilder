@@ -1,0 +1,1 @@
+json.musicians_list @members, :username

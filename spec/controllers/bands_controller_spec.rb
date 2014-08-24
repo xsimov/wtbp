@@ -10,12 +10,19 @@ RSpec.describe BandsController, :type => :controller do
   end
 
   context 'create action' do
+
+    before :each do
+      musician = FactoryGirl.create(:musician)
+      session[:user_id] = musician.id
+    end
+    
     it "redirects to the band profile page if the data is valid" do
       band = FactoryGirl.build(:band_with_many_styles)
       expect(band).to be_valid
       post :create, band: band.attributes
+
       new_band = Band.find_by(name: band.name)
-      expect(response).to redirect_to(band_path(new_band))
+      expect(response).to redirect_to(band_path(new_band.id))
     end
 
     it "renders again the new form if the data is not valid with that data" do
@@ -25,6 +32,13 @@ RSpec.describe BandsController, :type => :controller do
 
       expect(assigns(:band)).to be_a_new(Band)
       expect(response).to render_template(:new)
+    end
+
+    it "automatically sets the creating musician as a member of the band" do
+      band = FactoryGirl.build(:band)
+      post :create, band: band.attributes
+      band = Band.find_by(name: band.name)
+      expect(band.musicians).to include()
     end
   end
 

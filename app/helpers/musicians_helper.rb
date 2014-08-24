@@ -6,4 +6,8 @@ module MusiciansHelper
     @musician.instruments
   end
   
+
+  def print_all_musicians
+    Musician.all
+  end
 end

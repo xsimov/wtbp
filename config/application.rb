@@ -27,26 +27,21 @@ module Wtbp
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.before_configuration do
-      if Rails.env == 'development'
-        env_file = File.join(Rails.root, 'config', 'social_keys.yml')
-        file_content = YAML::load(IO.read(env_file)).split("\"")
+    # config.before_configuration do
+    #   if Rails.env == 'development'
+    #     env_file = File.join(Rails.root, 'config', 'social_keys.yml')
+    #     file_content = YAML::load(IO.read(env_file)).split("\"")
         
-        n_pairs = file_content.length / 2
+    #     n_pairs = file_content.length / 2
         
-        n_pairs.times.with_index do |i|
-          i *= 2
-          key = file_content[0+i][0..-2]
-          value = file_content[1+i]
-          ENV[key] = value
-        end
-
-        # CONFIG = HashWithIndifferentAccess.new(file_content)
-        # CONFIG.each do |key, value|
-        #   ENV[key.to_s] = value
-        # end
-      end
-    end
+    #     n_pairs.times.with_index do |i|
+    #       i *= 2
+    #       key = file_content[0+i][0..-2]
+    #       value = file_content[1+i]
+    #       ENV[key] = value
+    #     end
+    #   end
+    # end
 
 
 

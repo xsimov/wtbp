@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :band, :class => Band do
+  factory :band do
     sequence(:name) { |n| "Band#{n}" }
     year "2008"
     styles []

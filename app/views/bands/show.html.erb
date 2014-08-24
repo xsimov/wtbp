@@ -1,0 +1,20 @@
+<section class="band_info">
+  <input id="band_id" type="hidden" value="<%= @band.id %>" />
+  <p>Band name: <span id="band_name"><%= @band.name %></span></p>
+  <p>List of members:</p>
+  <ul id="member_list">
+    <% @band.members.each do |member| %>
+      <li><%= member.username %></li>
+    <% end %>
+  </ul>
+</section>
+<button id="add_member">Add a new member!</button>
+<button id="add_concert">Add a new concert!</button>
+
+<div id="all_musicians" class="ask_for_input">
+  <ul></ul>
+</div>
+
+<div id="new_concert" class="ask_for_input">
+  <%= render 'concerts/form' %>
+</div>
