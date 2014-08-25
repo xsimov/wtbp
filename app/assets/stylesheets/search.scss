@@ -1,0 +1,11 @@
+#search {
+  height: 2.4rem;
+  font-size: 2rem;
+  width: 30rem;
+  float:right;
+  right: 0;
+  color: rgba(38,87,29,0.2);
+}
+#search:focus {
+  color: rgb(38,87,29);
+}

@@ -88,4 +88,4 @@ function addNewMembers(){
 
 }
 
-$('document').ready(addNewMembers);;
+$('document').ready(addNewMembers);
