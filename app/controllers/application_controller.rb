@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
     Musician.find(session[:user_id]) unless session[:user_id].nil?
   end
 
+  def notice
+    flash[:notice] if flash[:notice]
+  end
+
+  def alert
+    flash[:alert] if flash[:alert]
+  end
 end

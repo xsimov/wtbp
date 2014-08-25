@@ -52,6 +52,6 @@ table {
   border-spacing: 0;
 }
 
-button:focus{
+button:focus, input:focus{
   outline: -webkit-focus-ring-color none;
 }

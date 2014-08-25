@@ -1,0 +1,8 @@
+<article class="basic_display">
+  <h1>All Musicians</h1>
+  <ul>
+    <% @musicians.each do |musician| %>
+      <li><a href="/musicians/<%= musician.id %>"><%= musician.username %></a></li>
+    <% end %>
+</ul>
+</article>

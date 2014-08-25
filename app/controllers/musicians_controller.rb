@@ -11,6 +11,7 @@ class MusiciansController < ApplicationController
   def create
     @musician = Musician.new musician_params
     @musician.save!
+    flash["notice"] = "Thanks for registering! Have fun discovering new music!"
     redirect_to musician_path(@musician)
   rescue ActiveRecord::RecordInvalid
     render 'new'

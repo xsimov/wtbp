@@ -1,0 +1,19 @@
+<article class="basic_display">
+  <h1>All Concerts</h1>
+  <table>
+    <th>
+      <td></td>
+    </th>
+    <tbody>
+      <% @concerts.each do |concert| %>
+        <tr>
+          <a href="/bands/<%= concert.band_id %>/concerts/<%= concert.id %>">
+            <td><%= concert.band.name %><td>
+            <td><%= concert.place %></td>
+            <td><%= concert.date %> at <%= concert.hour %>h</td>
+          </a>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</article>

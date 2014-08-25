@@ -1,20 +1,18 @@
- function addNewMembers(){
+function addNewMembers(){
   var boardForList = document.getElementById('all_musicians');
   var bandId = document.getElementById('band_id').value;
   var memberUl = document.getElementById('member_list');
+  var positionFormBox = document.getElementById('position_form');
+  var backButton = document.getElementById('back_to_list');
   boardForList.style.display = 'none';
-
+  var musiciansList;
+  var ul = boardForList.children[0].children[0];
+  var li;
+  
   document.getElementById('add_member').addEventListener('click', function(event){
-    var musiciansList;
-    var ul = boardForList.children[0];
-    var li;
-
-    if (toggleDisplay(boardForList) === null){
-      destroyList();
-    } else {
-      writeList();
-    }
-
+    toggleDisplay(boardForList);
+    writeList();
+    
     function writeList(){
       musiciansList = retrieveList("/musicians");
       musiciansList.forEach(function(element){
@@ -26,28 +24,33 @@
       ul.addEventListener('click', addMemberToBand);
     }
 
-    function destroyList(){
-      ul.innerHTML = '';
-      ul.removeEventListener('click', addMemberToBand);
-    }
-
     function addMemberToBand(event){
       var musicianUsername = event.target.id;
       if (checkMembership(musicianUsername)) return;
       toggleDisplay(boardForList);
-      destroyList();
+      ul.removeEventListener('click', addMemberToBand);
+      destroyAllMusiciansList();
       getMusicianPosition(musicianUsername);
     }
 
     function getMusicianPosition(musicianUsername){
-      var positionFormBox = document.getElementById('position_form');
       toggleDisplay(positionFormBox);
+      possibilityToGoBackToList();
       document.getElementById('musician_name').innerHTML = musicianUsername;
       positionFormBox.children[0].addEventListener('submit', function(event){
         event.preventDefault();
         var musicianPosition = document.getElementById('input_position').value;
         refreshList(musicianUsername, musicianPosition);
         toggleDisplay(positionFormBox);
+      });
+    }
+
+    function possibilityToGoBackToList(){
+      backButton.addEventListener('click', function rollback(event){
+        toggleDisplay(positionFormBox);
+        toggleDisplay(boardForList);
+        writeList();
+        backButton.removeEventListener('click', rollback);
       });
     }
 
@@ -79,15 +82,6 @@
       xhReqPost.open("POST", '/bands/addmember');
       xhReqPost.send(JSON.stringify({'username': newName, 'position': newPosition, 'band_id': parseInt(bandId)}));
       regenerateBandMembersList();
-    }
-
-
-    function retrieveList(url){
-      var xhReq = new XMLHttpRequest();
-      xhReq.open("GET", url, false);
-      xhReq.send(null);
-      var serverResponse = xhReq.responseText;
-      return JSON.parse(serverResponse).musicians_list;
     }
 
   });

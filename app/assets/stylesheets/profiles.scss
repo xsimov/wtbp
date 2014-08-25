@@ -1,0 +1,35 @@
+@import 'variables';
+
+.profile_info {
+  
+  @extend .basic_display;
+  
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  li {
+    padding-left: 2rem;
+  }
+
+  .relevant {
+    font-size: 1.2rem;
+  }
+}
+
+.musician_menu {
+  position: absolute;
+  top: $profilePictWidth * $pictureRatio * 0.6;
+  right: -3rem;
+  text-align: right;
+}
+
+.profile_picture {
+  position: absolute;
+  width: $profilePictWidth;
+  height: $profilePictWidth * $pictureRatio;
+  background: black;
+  border-radius: 20px;
+  top: -1 * $profilePictWidth * $pictureRatio * 0.4;
+  right: 2rem;
+}

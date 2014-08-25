@@ -1,4 +1,5 @@
-<section class="band_info">
+<section class="profile_info">
+  <img src="" alt="<%= @band.name %>" class="profile_picture">
   <input id="band_id" type="hidden" value="<%= @band.id %>" />
   <p>Band name: <span id="band_name"><%= @band.name %></span></p>
   <p>List of members:</p>
@@ -7,22 +8,33 @@
       <li><%= member.username %> - <%= member.position %></li>
     <% end %>
   </ul>
+    <menu class="musician_menu">
+      <ul>
+        <li><button id="add_member">Add a new member!</button></li>
+        <li><button id="add_concert">Add a new concert!</button></li>
+      </ul>
+    </menu>
 </section>
-<button id="add_member">Add a new member!</button>
-<button id="add_concert">Add a new concert!</button>
 
-<div id="all_musicians" class="ask_for_input">
-  <ul></ul>
+
+
+<div class="greyed" id="all_musicians">
+  <div class="content">
+    <ul></ul>
+  </div>
 </div>
 
-<div id="new_concert" class="ask_for_input">
-  <%= render 'concerts/form' %>
+<div class="greyed" id="new_concert">
+  <div class="content">
+    <%= render 'concerts/form' %>
+  </div>
 </div>
 
-<div id="position_form" class="ask_for_input">
+<div class="greyed" id="position_form"><div class="content">
   <form>
-    <span id="musician_name"></span>'s position in the band:
-    <input type="text" id="input_position" />
-    <input type="submit" value="Set position">
+    <span id="musician_name"></span>'s position in the band:<br/>
+    <input type="text" id="input_position" /><br/>
+    <input type="submit" value="Set position" class="button">
+    <button id="back_to_list">Back</button>
   </form>
-</div>
+</div></div>

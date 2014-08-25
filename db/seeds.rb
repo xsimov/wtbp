@@ -5,3 +5,24 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+5.times do
+  FactoryGirl.create(:musician)
+end
+
+3.times do
+  band = FactoryGirl.create(:band_with_many_styles)
+  7.times do
+    band.members << Musician.order("RANDOM()").first
+  end
+  band.members.uniq
+end
+
+2.times do
+  band = FactoryGirl.create(:band)
+  7.times do
+    band.members << Musician.order("RANDOM()").first
+  end
+  band.members.uniq
+end
+

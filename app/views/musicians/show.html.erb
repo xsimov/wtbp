@@ -1,10 +1,35 @@
-Thanks for registering! Have fun discovering new music!
-
-Instruments played by <%= @musician.username %>:
-<ul>
-  <% display_instruments_list.each do |instr| %>
-    <li><%= instr.name %></li>
-  <% end %>
-</ul>
-
-<a href="<%= new_band_path %>"><button>Create a new band!</button></a>
+<section class="profile_info">
+  <img src="" alt="<%= @musician.username %>" class="profile_picture">
+  <h1><%= @musician.username %></h1>
+  <p>Aliases:
+    <ul>
+      <% @musician.aliases.each do |nickname| %>
+        <li><span class="relevant"><%= nickname %></span></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>First Name: <span class="relevant"><%= @musician.first_name %></span></p>
+  <p>Last Name: <span class="relevant"><%= @musician.last_name %></span></p>
+  <p>Birth date: <span class="relevant"><%= @musician.birth_date %></span></p>
+  <p>Instruments played by <%= @musician.username %>:
+    <ul>
+      <% display_instruments_list.each do |instr| %>
+        <li><span class="relevant"><%= instr.name %></span></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>Bands:
+    <ul>
+      <% @musician.bands.each do |band| %>
+        <li><span class="relevant"><%= band.name %></span></li>
+      <% end %>
+    </ul>
+  </p>
+  <menu class="musician_menu">
+    <ul>
+      <li><a href="<%= new_band_path %>"><button>Create a new band!</button></a></li>
+      <li><a href="<%= new_band_path %>"><button>Add instruments!</button></a></li>
+      <li><a href="<%= new_band_path %>"><button>Add a picture!</button></a></li>
+    </ul>
+  </menu>
+</section>

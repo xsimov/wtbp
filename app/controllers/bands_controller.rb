@@ -5,6 +5,10 @@ class BandsController < ApplicationController
     @band.parse_styles
   end
 
+  def index
+    @bands = Band.all
+  end
+
   def create
     @band = Band.new band_params
     @band.members << current_user
