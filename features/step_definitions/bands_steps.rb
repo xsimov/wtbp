@@ -36,13 +36,10 @@ end
 
 Then(/^I can choose it from all the registered members$/) do
   find("##{@musician.username}").click
-  find("##{@musician.username}").click
-  find("##{@musician.username}").click
-  # I don't know why... REALLY!
 end
 
-Then(/^the musician I chose is in the list$/) do
-  expect(find('#member_list')).to have_content @musician.username
+Then(/^the musician I chose is in the list with its position in the band$/) do
+expect(page).to have_content "#{@musician.username} - Piano"
 end
 
 When(/^I want to add a concert$/) do
@@ -58,6 +55,13 @@ Then(/^I can enter the specifications$/) do
 end
 
 Then(/^I get redirected to that concert page$/) do
-  concert = Concert.find_by_place("Cafe Rene")
-  expect(current_path).to eq(band_concert_path(concert.band_id, concert.id))
+  this_concert = Concert.find_by(place: "Cafe Rene")
+  expect(current_path).to eq(band_concert_path(this_concert.band_id, this_concert.id))
+end
+
+Then(/^add its position on the band$/) do
+  within('#position_form') do
+    fill_in "input_position", with: "Piano"
+    click_button "Set position"
+  end
 end

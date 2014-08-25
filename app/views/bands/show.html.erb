@@ -3,8 +3,8 @@
   <p>Band name: <span id="band_name"><%= @band.name %></span></p>
   <p>List of members:</p>
   <ul id="member_list">
-    <% @band.members.each do |member| %>
-      <li><%= member.username %></li>
+    <% @band.get_members_with_position.each do |member| %>
+      <li><%= member.username %> - <%= member.position %></li>
     <% end %>
   </ul>
 </section>
@@ -17,4 +17,12 @@
 
 <div id="new_concert" class="ask_for_input">
   <%= render 'concerts/form' %>
+</div>
+
+<div id="position_form" class="ask_for_input">
+  <form>
+    <span id="musician_name"></span>'s position in the band:
+    <input type="text" id="input_position" />
+    <input type="submit" value="Set position">
+  </form>
 </div>

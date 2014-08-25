@@ -11,13 +11,18 @@ class Band < ActiveRecord::Base
     self.musicians
   end
 
-  def get_members_with_positions
+  def get_members_with_position
     musicians = Musician.joins(:bands).where("bands_musicians.band_id = #{self.id}")
     musicians.each do |musician|
-      query = "SELECT position FROM bands_musicians WHERE band_id = #{self.id} AND musician_id = #{musician.id}"
-      musician.position = ActiveRecord::Base.connection.select_values(query).first
+      musician.get_position(self.id)
     end
     musicians
+  end
+
+  def add_position(username, position)
+    musician = Musician.find_by_username(username)
+    query = "UPDATE bands_musicians SET position='#{position}' WHERE band_id = #{self.id} AND musician_id = #{musician.id}"
+    ActiveRecord::Base.connection.execute(query)
   end
 
   def parse_styles
