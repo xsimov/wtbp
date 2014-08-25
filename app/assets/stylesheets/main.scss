@@ -25,13 +25,14 @@ input {
 
 .button, button {
   width: auto;
-  padding: 0 1rem;
+  padding: 0 0.8rem;
   height: 2.5rem;
   border-radius: 10px;
-  background: #95b79d;
+  background: #52b741;
+  border: 1px solid #409132;
 }
 
-.button:hover{
+.button:hover, button:hover{
   background: #96d6a8;
 }
 
