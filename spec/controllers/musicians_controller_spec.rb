@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe MusiciansController, :type => :controller do
 
-  context 'create action' do
+  context "the create action" do
     
     it "redirects to the user page if the data is valid" do
       musician = FactoryGirl.build(:musician)
@@ -20,6 +20,18 @@ RSpec.describe MusiciansController, :type => :controller do
       expect(assigns(:musician)).to be_a_new(Musician)
     end
 
+  end
+
+  context "the index action" do
+    it "has a view to render" do
+      get :index
+      expect(response).to render_template(:index)
+    end
+
+    it "passes a variable to the view with all the musicians" do
+      get :index
+      expect(assigns(:musicians)).to eq(Musician.all)
+    end
   end
 
 end

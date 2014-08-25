@@ -1,8 +1,29 @@
-Instruments played by <%= @musician.username %>:
-<ul>
-  <% display_instruments_list.each do |instr| %>
-    <li><%= instr.name %></li>
-  <% end %>
-</ul>
-
+<section class="profile_info">
+  <img src="" alt="<%= @musician.username %>" class="profile_picture">
+  <p>Username: <%= @musician.username %></p>
+  <p>Aliases:
+    <ul>
+      <% @musician.aliases.each do |nickname| %>
+        <li><%= nickname %></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>First Name: <%= @musician.first_name %></p>
+  <p>Last Name: <%= @musician.last_name %></p>
+  <p>Birth date: <%= @musician.birth_date %></p>
+  <p>Instruments played by <%= @musician.username %>:
+    <ul>
+      <% display_instruments_list.each do |instr| %>
+        <li><%= instr.name %></li>
+      <% end %>
+    </ul>
+  </p>
+  <p>Bands:
+    <ul>
+      <% @musician.bands.each do |band| %>
+        <li><%= band.name %></li>
+      <% end %>
+    </ul>
+  </p>
+</section>
 <a href="<%= new_band_path %>"><button>Create a new band!</button></a>
