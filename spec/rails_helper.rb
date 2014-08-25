@@ -41,3 +41,13 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+def create_a_band_with_musicians(n = 3)
+  @band = FactoryGirl.create(:band)
+  @musicians = []
+  n.times.with_index do |i|
+    @musicians[i] = FactoryGirl.create(:musician)
+    @band.members << @musicians[i]
+  end
+  @musician = @musicians.first if n == 1
+end

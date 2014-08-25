@@ -14,9 +14,7 @@ class Band < ActiveRecord::Base
   def get_members_with_position
     musicians = Musician.joins(:bands).where("bands_musicians.band_id = #{self.id}")
     musicians.each do |musician|
-      query = "SELECT position FROM bands_musicians WHERE band_id = #{self.id} AND musician_id = #{musician.id}"
-      current_musician_position = ActiveRecord::Base.connection.select_values(query).first
-      musician.position = (current_musician_position.nil?) ? "still undefined!" : current_musician_position
+      musician.get_position(self.id)
     end
     musicians
   end
