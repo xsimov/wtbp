@@ -35,7 +35,6 @@ Then(/^I get redirected to its profile$/) do
 end
 
 Then(/^I can see its information$/) do
-  expect(find('article')).to have_text "Username"
   expect(find('article')).to have_text "Aliases"
   expect(find('article')).to have_text "First Name"
   expect(find('article')).to have_text "Last Name"

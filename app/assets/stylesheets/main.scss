@@ -9,6 +9,10 @@ article {
   padding: 0 $navBarWidth;
 }
 
+input {
+  text-align: center;
+}
+
 .comment {
   font-size: $corpFontSize * 0.8;
   font-style: italic;
@@ -44,12 +48,12 @@ input {
 }
 
 .content {
-  vertical-align: middle;
+  top: 0; bottom: 0;
   background: #38b53b;
   opacity: 1;
   margin: auto;
   width: 30%;
-  height: 50%;
+  height: 60%;
   position: absolute;
   top: 0; right: 0; left: 0; bottom: 0;
   text-align: center;

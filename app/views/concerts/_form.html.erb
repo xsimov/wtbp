@@ -1,11 +1,11 @@
 <%= form_for [@band, @concert] do |f| %>
-  <%= f.label :date %>
-  <%= f.text_field :date %>
-  <%= f.label :hour %>
-  <%= f.text_field :hour %>
-  <%= f.label :place %>
-  <%= f.text_field :place %>
-  <%= f.label :additional_info %>
-  <%= f.text_field :additional_info %>
+  <%= f.label :date %><br />
+  <%= f.text_field :date %><br />
+  <%= f.label :hour %><br />
+  <%= f.text_field :hour %><br />
+  <%= f.label :place %><br />
+  <%= f.text_field :place %><br />
+  <%= f.label :additional_info %><br />
+  <%= f.text_field :additional_info %><br />
   <%= f.submit "Save concert!" %>
 <% end %>
