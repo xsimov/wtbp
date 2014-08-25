@@ -20,3 +20,12 @@ function destroyAllMusiciansList(){
   var ul = document.getElementById('all_musicians').children[0].children[0];
   ul.innerHTML = '';
 }
+
+function retrieveList(url){
+  var xhReq = new XMLHttpRequest();
+  xhReq.open("GET", url, false);
+  xhReq.setRequestHeader("Accept","application/json");
+  xhReq.send(null);
+  var serverResponse = xhReq.responseText;
+  return JSON.parse(serverResponse).musicians_list;
+}

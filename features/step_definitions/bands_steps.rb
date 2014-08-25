@@ -38,9 +38,9 @@ Then(/^I can choose it from all the registered members$/) do
   find("##{@musician.username}").click
 end
 
-Then(/^the musician I chose is in the list with its position in the band$/) do
-expect(page).to have_content "#{@musician.username} - Piano"
-end
+# Then(/^the musician I chose is in the list with its position in the band$/) do
+#   expect(page).to have_content "#{@musician.username} - Piano"
+# end
 
 When(/^I want to add a concert$/) do
   click_button "Add a new concert!"
@@ -54,10 +54,10 @@ Then(/^I can enter the specifications$/) do
   click_button "Save concert!"
 end
 
-Then(/^I get redirected to that concert page$/) do
-  this_concert = Concert.find_by(place: "Cafe Rene")
-  expect(current_path).to eq(band_concert_path(this_concert.band_id, this_concert.id))
-end
+# Then(/^I get redirected to that concert page$/) do
+#   this_concert = Concert.find_by(place: "Cafe Rene")
+#   expect(current_path).to eq(band_concert_path(this_concert.band_id, this_concert.id))
+# end
 
 Then(/^add its position on the band$/) do
   within('#position_form') do

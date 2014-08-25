@@ -84,14 +84,6 @@ function addNewMembers(){
       regenerateBandMembersList();
     }
 
-    function retrieveList(url){
-      var xhReq = new XMLHttpRequest();
-      xhReq.open("GET", url, false);
-      xhReq.send(null);
-      var serverResponse = xhReq.responseText;
-      return JSON.parse(serverResponse).musicians_list;
-    }
-
   });
 
 }
