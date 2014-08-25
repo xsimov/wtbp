@@ -2,31 +2,56 @@
 
 html {
   font-family: $corporateFonts;
+  font-size: $corpFontSize;
 }
 
 article {
   padding: 0 $navBarWidth;
 }
 
-.app_feedback {
-  display: none;
-}
-
 .comment {
-  font-size: 0.8rem;
+  font-size: $corpFontSize * 0.8;
   font-style: italic;
 }
 
-button {
+input {
+  margin: 0.2rem 0;
+  font-size: $corpFontSize;
+  border-radius: 5px;
+  background: #b8cbc7;
+  border-style: none;
+  height: 1.6rem;
+}
+
+.button, button {
   width: auto;
   padding: 0 1rem;
   height: 2.5rem;
   border-radius: 10px;
+  background: #95b79d;
 }
 
-.ask_for_input {
+.button:hover{
+  background: #96d6a8;
+}
+
+.greyed {
   display: none;
-  width: 15rem;
-  height: 15rem;
-  background: #5a9a4e;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0; right: 0; left: 0; bottom: 0;
+}
+
+.content {
+  vertical-align: middle;
+  background: #38b53b;
+  opacity: 1;
+  margin: auto;
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  top: 0; right: 0; left: 0; bottom: 0;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
 }
