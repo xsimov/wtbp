@@ -50,4 +50,16 @@ RSpec.describe BandsController, :type => :controller do
     end
   end
 
+  context "the index action" do
+    it "renders its view" do
+      get :index
+      expect(response).to render_template(:index)
+    end
+
+    it "passes a variable to the view with all the bands" do
+      get :index
+      expect(assigns(:bands)).to eq(Band.all)
+    end
+  end
+
 end

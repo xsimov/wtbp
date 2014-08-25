@@ -4,3 +4,22 @@ $corporateFonts: "Helvetica";
 $corpFontSize: 1rem;
 $profilePictWidth: 15rem;
 $pictureRatio: 1.2;
+
+.basic_display {
+  padding: 2rem;
+  padding-left: 3rem;
+  position: relative;
+  width: 100%;
+  background: #76bb73;
+  margin: 8rem 0 0 2rem;
+  border-radius: 10px;
+  line-height: 1.4rem;
+
+  h1 {
+    position: absolute;
+    top: -4rem;
+    font-size: 4rem;
+    padding-left: 1rem;
+    line-height: 4rem;
+  }
+}

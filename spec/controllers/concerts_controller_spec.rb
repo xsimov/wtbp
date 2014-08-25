@@ -20,4 +20,16 @@ RSpec.describe ConcertsController, :type => :controller do
     end
   end
 
+  context "the index action" do
+    it "renders the index view" do
+      get :index
+      expect(response).to render_template(:index)
+    end
+
+    it "passes a variable to the view with all the concerts" do
+      get :index
+      expect(assigns(:concerts)).to eq(Concert.all)
+    end
+  end
+
 end
