@@ -1,0 +1,9 @@
+<h1 class="title">Search Results for <em>"<%= @query %>"</em></h1>
+<section class="inline profile_info">
+  <span class="relevant">Results for bands</span>
+  <ul>
+    <% @bands.each do |band| %>
+      <li><%= band.name %> <span class="comment">(<%= band.year %>)</span></li>
+    <% end %>
+  </ul>
+</section>

@@ -1,13 +1,13 @@
 <h1 class="title inline">All Bands</h1>
 <div class="inline">
-  <form action="/search" method="POST" class="search_template right">
+  <form action="/search/bands" method="POST" class="search_template right">
     <input name="search" type="text" id="search" value="Search bands..." class="inline" /> <input class="button inline" type="submit" value="Search" />
   </form>
 </div>
 <article class="basic_display">
   <ul>
     <% @bands.each do |band| %>
-      <li><a href="/bands/<%= band.id %>"><%= band.name %></a></li>
+      <li><a href="/bands/<%= band.id %>"><%= band.name %> <span class="comment">(<%= band.year %>)</span></a></li>
     <% end %>
 </ul>
 </article>
