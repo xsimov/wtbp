@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   end
   get '/concerts' => 'concerts#index'
   post '/search' => 'search#allfields'
+  post '/search/bands' => 'search#bands'
+  post '/search/musicians' => 'search#musicians'
+
 # API points for the JS
 
   post '/bands/addmember' => 'bands#addmember'

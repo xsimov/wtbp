@@ -6,4 +6,4 @@ var fireFunctions = function(){
 }
 
 $('document').ready(fireFunctions);
-$('document').on('page:load', fireFunctions);
+$('document').on('page:change', fireFunctions);
