@@ -10,6 +10,6 @@ class SearchController < ApplicationController
 
   private
   def new_search
-    @search = Search.new params[:query]
+    @search = Search.new params[:search]
   end
 end
