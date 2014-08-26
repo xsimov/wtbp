@@ -23,6 +23,17 @@ RSpec.describe Search, :type => :model do
     expect(search_lower.bands).to eq([band])
   end
 
+  it "matches incomplete fields" do
+    kail = FactoryGirl.create(:musician, last_name: "di Laurence")
+    band = FactoryGirl.create(:band, name: "Illegal Jamms")
+
+    search_upper = Search.new "laurence"
+    expect(search_upper.musicians).to eq([kail])
+
+      search_upper = Search.new "Illegal"
+    expect(search_upper.bands).to eq([band])
+  end
+
   context "the musicians method" do
     it "searches by first name" do
       kail = FactoryGirl.create(:musician, first_name: "George")

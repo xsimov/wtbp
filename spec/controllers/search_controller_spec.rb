@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe SearchController, :type => :controller do
 
   context "the allfields action" do
-
     it "exists" do
       post :allfields, { query: "" }
       expect(response.status).to eq(200)
@@ -14,7 +13,6 @@ RSpec.describe SearchController, :type => :controller do
       expect(assigns(:bands)).to eq([])
       expect(assigns(:musicians)).to eq([])
     end
-
   end
 
 end
