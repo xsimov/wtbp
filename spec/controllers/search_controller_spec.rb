@@ -12,7 +12,6 @@ RSpec.describe SearchController, :type => :controller do
     it "assigns an empty array if search params were empty" do
       post :allfields, { query: "" }
       expect(assigns(:bands)).to eq([])
-      expect(assigns(:concerts)).to eq([])
       expect(assigns(:musicians)).to eq([])
     end
 

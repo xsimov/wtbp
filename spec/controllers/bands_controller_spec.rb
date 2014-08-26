@@ -17,7 +17,7 @@ RSpec.describe BandsController, :type => :controller do
     end
     
     it "redirects to the band profile page if the data is valid" do
-      band = FactoryGirl.build(:band_with_many_styles)
+      band = FactoryGirl.build(:band)
       expect(band).to be_valid
       post :create, band: band.attributes
 
@@ -44,7 +44,7 @@ RSpec.describe BandsController, :type => :controller do
 
   context 'edit action' do
     it "parses the styles array into a string" do
-      @band = FactoryGirl.create(:band_with_many_styles)
+      @band = FactoryGirl.create(:band)
       get :edit, id: @band.id
       expect(assigns(:band)).to eq(@band)
     end

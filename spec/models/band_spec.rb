@@ -4,7 +4,7 @@ RSpec.describe Band, :type => :model do
 
   context 'the styles parser method' do
     it "converts the styles array into a comma separated string" do
-      band = FactoryGirl.create(:band_with_many_styles)
+      band = FactoryGirl.create(:band)
       expect(band.parse_styles).to be_a(String)
     end
   end

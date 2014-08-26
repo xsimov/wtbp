@@ -11,7 +11,7 @@
 end
 
 3.times do
-  band = FactoryGirl.create(:band_with_many_styles)
+  band = FactoryGirl.create(:band)
   7.times do
     band.members << Musician.order("RANDOM()").first
   end

@@ -5,7 +5,6 @@ class SearchController < ApplicationController
   def allfields
     @musicians = @search.musicians
     @bands = @search.bands
-    @concerts = @search.concerts
     render '/layouts/search_results'
   end
 

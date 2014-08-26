@@ -13,9 +13,8 @@ class Search
     false
   end
 
-  def musicians
+  def musicians(search_fields = [:first_name, :last_name])
     @results = []
-    search_fields = [:first_name, :last_name]
     search_fields.each do |parameter|
       Musician.where("#{parameter} ILIKE ?", @query).each do |musician|
         @results << musician
@@ -26,19 +25,29 @@ class Search
   end
 
   def bands
-    []
-  end
-
-  def concerts
-    []
+    @results = []
+    Band.where("name ILIKE ?", @query).each do |band|
+      @results << band
+    end
+    search_styles
+    @results
   end
 
   private
   def search_aliases
     Musician.all.pluck(:id, :aliases).each do |alias_and_id|
-      alias_and_id.last.map(&:downcase)
+      alias_and_id.last.map!(&:downcase)
       if alias_and_id.last.include? @query.downcase
         @results << Musician.find(alias_and_id.first)
+      end
+    end
+  end
+
+  def search_styles
+    Band.all.pluck(:id, :styles).each do |styles_and_id|
+      styles_and_id.last.map!(&:downcase)
+      if styles_and_id.last.include? @query.downcase
+        @results << Band.find(styles_and_id.first)
       end
     end
   end
