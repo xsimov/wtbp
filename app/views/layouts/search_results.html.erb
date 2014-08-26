@@ -1,0 +1,26 @@
+<article>
+  <section class="column">
+    <span class="relevant">Results for bands</span>
+    <ul>
+      <% @band_results.each do |band| %>
+        <li><%= band.name %> <span class="comment">(<%= band.year %>)</span></li>
+      <% end %>
+    </ul>
+  </section>
+  <section class="column">
+    <span class="relevant">Results for musicians</span>
+    <ul>
+      <% @band_results.each do |band| %>
+        <li><%= band.name %> <span class="comment">(<%= band.year %>)</span></li>
+      <% end %>
+    </ul>
+  </section>
+  <section class="column">
+    <span class="relevant">Results for concerts</span>
+    <ul>
+      <% @concert_results.each do |concert| %>
+        <li><%= concert.date %> <%= concert.parse_hour %> @ <%= concert.place %></span></li>
+      <% end %>
+    </ul>
+  </section>
+</article>

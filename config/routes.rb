@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :concerts, only: [:create, :show]
   end
   get '/concerts' => 'concerts#index'
-
+  post '/search' => 'search#allfields'
 # API points for the JS
 
   post '/bands/addmember' => 'bands#addmember'

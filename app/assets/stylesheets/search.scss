@@ -1,11 +1,18 @@
 #search {
-  height: 2.4rem;
+  height: 2.5rem;
   font-size: 2rem;
   width: 30rem;
-  float:right;
-  right: 0;
   color: rgba(38,87,29,0.2);
+  border-radius: 20px;
 }
 #search:focus {
   color: rgb(38,87,29);
+}
+.search_template {
+  position: relative;
+
+  .button {
+    top: 0;
+    position: absolute;
+  }
 }

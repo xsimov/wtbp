@@ -3,10 +3,12 @@ Given(/^I go to the welcome page$/) do
 end
 
 When(/^I want to search something$/) do
-  fill_in "Search", with: "kail"
+  fill_in "search", with: "kail"
   click_button "Search"
 end
 
 Then(/^I get the results for all fields and kinds$/) do
-  expect(page).to have_text "kail"
+  expect(page).to have_text "Results for bands"
+  expect(page).to have_text "Results for musicians"
+  expect(page).to have_text "Results for concerts"
 end
