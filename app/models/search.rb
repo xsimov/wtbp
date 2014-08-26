@@ -16,7 +16,7 @@ class Search
   def musicians(search_fields = [:first_name, :last_name])
     @results = []
     search_fields.each do |parameter|
-      Musician.where("#{parameter} ILIKE ?", @query).each do |musician|
+      Musician.where("#{parameter} ILIKE ?", "%#{@query}%").each do |musician|
         @results << musician
       end
     end
@@ -26,7 +26,7 @@ class Search
 
   def bands
     @results = []
-    Band.where("name ILIKE ?", @query).each do |band|
+    Band.where("name ILIKE ?", "%#{@query}%").each do |band|
       @results << band
     end
     search_styles

@@ -1,7 +1,9 @@
+@import 'variables';
+
 #search {
   height: 2.5rem;
   font-size: 2rem;
-  width: 30rem;
+  width: 25rem;
   color: rgba(38,87,29,0.2);
   border-radius: 20px;
 }
@@ -12,7 +14,11 @@
   position: relative;
 
   .button {
-    top: 0;
-    position: absolute;
+    vertical-align: bottom;
   }
+}
+
+.column {
+  vertical-align: top;
+  width: 45%;
 }

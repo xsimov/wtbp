@@ -1,7 +1,7 @@
 @import 'variables';
 
 html {
-  font-family: $corporateFonts;
+  font-family: $corpFonts;
   font-size: $corpFontSize;
 }
 
@@ -11,6 +11,12 @@ article {
 
 input {
   text-align: center;
+}
+
+.title {
+  padding: 1rem;
+  font-size: 4rem;
+  color: black;
 }
 
 .comment {
@@ -45,6 +51,11 @@ input {
   background: rgba(0,0,0,0.5);
   position: fixed;
   top: 0; right: 0; left: 0; bottom: 0;
+}
+
+.welcome {
+  // vertical-align: middle;
+  float: right;
 }
 
 .content {

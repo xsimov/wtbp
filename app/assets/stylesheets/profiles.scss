@@ -19,7 +19,7 @@
 
 .musician_menu {
   position: absolute;
-  top: $profilePictWidth * $pictureRatio * 0.6;
+  top: $profilePictWidth * $pictureRatio * 0.7;
   right: -3rem;
   text-align: right;
 }
@@ -30,6 +30,6 @@
   height: $profilePictWidth * $pictureRatio;
   background: black;
   border-radius: 20px;
-  top: -1 * $profilePictWidth * $pictureRatio * 0.4;
+  top: -1 * $profilePictWidth * $pictureRatio * 0.3;
   right: 2rem;
 }

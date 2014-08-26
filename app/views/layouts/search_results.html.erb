@@ -1,18 +1,17 @@
-<article>
-  <section class="column">
-    <span class="relevant">Results for bands</span>
-    <ul>
-      <% @musicians.each do |musician| %>
-        <li><%= "#{musician.first_name} #{musician.last_name}" %> <span class="comment">(<%= musician.username %>)</span></li>
-      <% end %>
-    </ul>
-  </section>
-  <section class="column">
-    <span class="relevant">Results for musicians</span>
-    <ul>
-      <% @bands.each do |band| %>
-        <li><%= band.name %> <span class="comment">(<%= band.year %>)</span></li>
-      <% end %>
-    </ul>
-  </section>
-</article>
+<h1 class="title">Search Results for <span class="comment">"<%= @query %>"</span></h1>
+<section class="column inline profile_info">
+  <span class="relevant">Results for musicians</span>
+  <ul>
+    <% @musicians.each do |musician| %>
+      <li><%= "#{musician.first_name} #{musician.last_name}" %> <span class="comment">(<%= musician.username %>)</span></li>
+    <% end %>
+  </ul>
+</section>
+<section class="column inline profile_info">
+  <span class="relevant">Results for bands</span>
+  <ul>
+    <% @bands.each do |band| %>
+      <li><%= band.name %> <span class="comment">(<%= band.year %>)</span></li>
+    <% end %>
+  </ul>
+</section>

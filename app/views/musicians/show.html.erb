@@ -1,6 +1,6 @@
+<h1 class="title"><%= @musician.username %></h1>
 <section class="profile_info">
   <img src="" alt="<%= @musician.username %>" class="profile_picture">
-  <h1><%= @musician.username %></h1>
   <p>Aliases:
     <ul>
       <% @musician.aliases.each do |nickname| %>

@@ -1,19 +1,9 @@
+<h1 class="title">All Concerts</h1>
 <article class="basic_display">
-  <h1>All Concerts</h1>
-  <table>
-    <th>
-      <td></td>
-    </th>
-    <tbody>
-      <% @concerts.each do |concert| %>
-        <tr>
-          <a href="/bands/<%= concert.band_id %>/concerts/<%= concert.id %>">
-            <td><%= concert.band.name %><td>
-            <td><%= concert.place %></td>
-            <td><%= concert.date %> at <%= concert.hour %>h</td>
-          </a>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="inline right">
+    <form action="/search" method="POST" class="search_template right">
+      <input name="search" type="text" id="search" value="Search by place..." class="inline" /> <input class="button inline" type="submit" value="Search" />
+    </form>
+  </div>
+
 </article>
