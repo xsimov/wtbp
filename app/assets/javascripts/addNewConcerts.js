@@ -4,4 +4,3 @@ function addNewConcert(){
     toggleDisplay(newConcertDiv);
   });
 }
-$('document').ready(addNewConcert);

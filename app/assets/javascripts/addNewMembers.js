@@ -87,5 +87,3 @@ function addNewMembers(){
   });
 
 }
-
-$('document').ready(addNewMembers);
