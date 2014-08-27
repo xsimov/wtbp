@@ -14,8 +14,11 @@ end
 
 Given(/^I go to the all musicians page$/) do
   @musicians = []
+  @bands = []
   3.times.with_index do |i|
     @musicians[i] = FactoryGirl.create(:musician)
+    @bands[i] = FactoryGirl.create(:band)
+    @bands[i].members << @musicians[i]
   end
   visit musicians_path
 end
@@ -44,4 +47,31 @@ Then(/^I can see its information$/) do
 end
 
 Given(/^some bands they play on next to their name$/) do
+  3.times.with_index do |i|
+    expect(page).to have_text @musicians[i].bands.first.name
+  end
+end
+
+Given(/^I am a registered musician$/) do
+  @musician = FactoryGirl.create(:musician)
+end
+
+When(/^I go to the sign in \/ up page$/) do
+  visit new_musician_path
+end
+
+When(/^I input the login info$/) do
+  within("#login") do
+    fill_in "username", with: @musician.username
+    fill_in "password", with: @musician.password
+    click_button "Sign in"
+  end
+end
+
+Then(/^I get redirected to my profile$/) do
+  expect(current_url).to eq(musician_url(@musician))
+end
+
+Then(/^I see the menu$/) do
+  expect(page).to have_text
 end

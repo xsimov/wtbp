@@ -16,13 +16,13 @@
       </ul>
       <img src="/assets/cbaix_logo.png">
     </nav>
-    <section>
-      <div class="greyed"><div id="notice" class="app_feedback"><%= notice %></div></div>
-      <div class="greyed"><div id="alert" class="app_feedback"><%= alert %></div></div>
-    </section>
     <article>
       <%= yield %>
     </article>
+    <section>
+      <div class="greyed"><div id="notice" class="content"><%= notice %></div></div>
+      <div class="greyed"><div id="alert" class="content "><%= alert %></div></div>
+    </section>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </body>
 </html>

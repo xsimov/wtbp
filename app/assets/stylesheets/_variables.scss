@@ -16,7 +16,7 @@ $pictureRatio: 1.2;
   background: #76bb73;
   margin: 1rem 0 0 2rem;
   border-radius: 10px;
-  line-height: 1.4rem;
+  line-height: 1.7rem;
   text-align: justify;
   h1 {
     position: absolute;
@@ -24,5 +24,8 @@ $pictureRatio: 1.2;
     font-size: 4rem;
     padding-left: 1rem;
     line-height: 4rem;
+  }
+  .more_line_space {
+    padding-bottom: 0.5rem;
   }
 }
