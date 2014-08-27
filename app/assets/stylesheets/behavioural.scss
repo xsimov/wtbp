@@ -1,3 +1,5 @@
+@import 'variables';
+
 .centered {
   text-align: center;
 }
@@ -14,4 +16,13 @@
 
 .vertical_top {
   vertical-align: top;
+}
+
+.reset_width {
+  width: initial;
+  margin: 0 1rem;
+}
+
+.pic_padding {
+  padding-right: $profilePictWidth + 1rem;
 }
