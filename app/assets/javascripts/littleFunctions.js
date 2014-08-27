@@ -2,6 +2,7 @@ function toggleDisplay(element){
   if (element.style.display !== 'block'){
     element.style.display = 'block';
     document.addEventListener('click', goBackOnGreyClick);
+    // document.addEventListener('keyup', goBackOnGreyClick);
     return 'on';
   }
   element.style.display = 'none';
@@ -9,10 +10,11 @@ function toggleDisplay(element){
 }
 
 function goBackOnGreyClick(event){
-  if (event.target.className === 'greyed'){
+  if ((event.target.className === 'greyed') || (event.keyCode == 27)){
     toggleDisplay(event.target);
     destroyAllMusiciansList();
     document.removeEventListener('click', goBackOnGreyClick);
+    // document.removeEventListener('keyup', goBackOnGreyClick);
   }
 }
 

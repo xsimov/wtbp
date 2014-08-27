@@ -35,22 +35,14 @@ function addNewMembers(){
 
     function getMusicianPosition(musicianUsername){
       toggleDisplay(positionFormBox);
-      possibilityToGoBackToList();
       document.getElementById('musician_name').innerHTML = musicianUsername;
-      positionFormBox.children[0].addEventListener('submit', function(event){
+      positionFormBox.children[0].addEventListener('submit', function goToPosition(event){
         event.preventDefault();
         var musicianPosition = document.getElementById('input_position').value;
         refreshList(musicianUsername, musicianPosition);
         toggleDisplay(positionFormBox);
-      });
-    }
-
-    function possibilityToGoBackToList(){
-      backButton.addEventListener('click', function rollback(event){
-        toggleDisplay(positionFormBox);
-        toggleDisplay(boardForList);
-        writeList();
-        backButton.removeEventListener('click', rollback);
+        document.getElementById('input_position').value = '';
+        positionFormBox.children[0].removeEventListener('submit', goToPosition);
       });
     }
 

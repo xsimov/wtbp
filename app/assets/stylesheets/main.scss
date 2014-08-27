@@ -38,6 +38,7 @@ input {
 }
 
 .button, button {
+  @extend input;
   width: auto;
   padding: 0 0.8rem;
   height: 2.5rem;

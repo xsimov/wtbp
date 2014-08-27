@@ -1,15 +1,17 @@
 Feature: Bands can be created as a group of musicians that has some own properties
 
   Scenario: Create a new band
-    Given I go to a musician's bands profile
-    When I add a band
-    Then I enter the properties
+    Given I'm logged in
+    And I go to a musician's bands profile
+    And I add a band
+    Then I can enter the properties
     And I get redirected to that band's profile
 
   Scenario: When I create a band I want to be part of it by default
-    Given I go to a musician's bands profile
+    Given I'm logged in
+    And I go to a musician's bands profile
     When I add a band
-    And I enter the properties
+    And I can enter the properties
     Then I want see that I am a member
 
 # @javascript

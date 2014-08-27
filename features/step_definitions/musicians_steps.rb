@@ -3,6 +3,7 @@ Given(/^I go to the sign up page$/) do
 end
 
 When(/^I put my data$/) do
+  
   within('#signup') do
     fill_in "Username", with: "kagdkajhdfkajhd"
     fill_in "Email", with: "someone@somemail.som"

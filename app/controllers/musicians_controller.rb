@@ -23,7 +23,6 @@ class MusiciansController < ApplicationController
 
   def show
     @musician = Musician.find(params[:id])
-    set_current_user(@musician)
   end
 
   private

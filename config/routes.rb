@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :concerts, only: [:create, :show]
   end
   resources :sessions, only: :create
-
+  
+  get '/goodbye' => 'sessions#destroy'
   get '/concerts' => 'concerts#index'
   post '/search' => 'search#allfields'
   post '/search/bands' => 'search#bands'
