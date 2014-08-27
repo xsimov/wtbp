@@ -1,0 +1,12 @@
+@import 'variables';
+
+#notice {
+  height: initial;
+  top: 30%;
+  bottom: initial;
+}
+
+#alert {
+  @extend #notice;
+  background: #ba4540;
+}

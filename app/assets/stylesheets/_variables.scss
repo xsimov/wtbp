@@ -1,11 +1,14 @@
 $navBarWidth: 10rem;
 $corporateColor: #2a691e;
-$corpFonts: "Helvetica";
+$titleFont: "Economica";
+$allDocFonts: "Amaranth", "Helvetica";
+$inputFont: "Shadows Into Light";
 $corpFontSize: 1rem;
 $profilePictWidth: 15rem;
 $pictureRatio: 1.2;
 
 .basic_display {
+  font-size: 1.4rem;
   padding: 2rem;
   padding-left: 3rem;
   position: relative;
@@ -13,13 +16,16 @@ $pictureRatio: 1.2;
   background: #76bb73;
   margin: 1rem 0 0 2rem;
   border-radius: 10px;
-  line-height: 1.4rem;
-
+  line-height: 1.7rem;
+  text-align: justify;
   h1 {
     position: absolute;
     top: -4rem;
     font-size: 4rem;
     padding-left: 1rem;
     line-height: 4rem;
+  }
+  .more_line_space {
+    padding-bottom: 0.5rem;
   }
 }

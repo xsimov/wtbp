@@ -1,8 +1,11 @@
 var fireFunctions = function(){
-  console.log('Search switch');
+  var notice = document.getElementById('notice');
+  var alert = document.getElementById('alert');
   if (document.getElementById('add_member') !== null) addNewMembers();
-  if (document.getElementById('new_concert') !== null) addNewConcerts();
+  if (document.getElementById('new_concert') !== null) addNewConcert();
   if (document.getElementById('search') !== null) searchFieldFormat();
+  if (notice.innerHTML !== '') toggleDisplay(notice.parentNode);
+  if (alert.innerHTML !== '') toggleDisplay(alert.parentNode);
 }
 
 $('document').ready(fireFunctions);

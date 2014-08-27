@@ -1,7 +1,7 @@
 @import 'variables';
 
 html {
-  font-family: $corpFonts;
+  font-family: $allDocFonts;
   font-size: $corpFontSize;
 }
 
@@ -9,14 +9,15 @@ article {
   padding: 0 $navBarWidth;
 }
 
-input {
-  text-align: center;
-}
-
 .title {
+  font-family: $titleFont;
   padding: 1rem;
   font-size: 4rem;
   color: black;
+}
+
+.welcome_search {
+  margin: 1rem;
 }
 
 .comment {
@@ -25,6 +26,8 @@ input {
 }
 
 input {
+  text-align: center;
+  font-family: $inputFont;
   margin: 0.2rem 0;
   font-size: $corpFontSize;
   border-radius: 5px;
@@ -50,11 +53,11 @@ input {
   display: none;
   background: rgba(0,0,0,0.5);
   position: fixed;
+  font-size: 1.5rem;
   top: 0; right: 0; left: 0; bottom: 0;
 }
 
 .welcome {
-  // vertical-align: middle;
   float: right;
 }
 
@@ -70,4 +73,7 @@ input {
   text-align: center;
   padding: 1rem;
   border-radius: 10px;
+  p {
+    vertical-align: middle;
+  }
 }

@@ -5,6 +5,7 @@ class SearchController < ApplicationController
   def allfields
     @musicians = @search.musicians
     @bands = @search.bands
+    flash[:alert] = "Your search didn't come with anything! Sorry :(" if @bands.empty? && @musicians.empty?
     render '/layouts/search_results'
   end
 
@@ -21,5 +22,6 @@ class SearchController < ApplicationController
   private
   def new_search
     @search = Search.new params[:search]
+    @query = @search.query
   end
 end

@@ -1,6 +1,7 @@
 class Musician < ActiveRecord::Base
 
-  validates :email, :username, uniqueness: true, presence: true
+  validates :username, uniqueness: true, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, presence: true, uniqueness: true
 
   has_and_belongs_to_many :instruments
   has_and_belongs_to_many :bands

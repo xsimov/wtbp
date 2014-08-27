@@ -14,3 +14,7 @@ Feature: In a database the search is a must
     Given I go to the musicians page
     When I search something
     Then I get the results for musicians only
+
+  Scenario: I want to see an error message if there are no results
+    Given I search for something that doesn't exist
+    Then I want to see a empty-thing warning
