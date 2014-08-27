@@ -3,7 +3,7 @@
   <span class="relevant">Results for musicians</span>
   <ul>
     <% @musicians.each do |musician| %>
-      <li><%= "#{musician.first_name} #{musician.last_name}" %> <span class="comment">(<%= musician.username %>)</span></li>
+      <li><a href="<%= musician_path(musician) %>"><%= "#{musician.first_name} #{musician.last_name}" %> <span class="comment">(<%= musician.username %>)</span></a></li>
     <% end %>
   </ul>
 </section>
@@ -11,7 +11,7 @@
   <span class="relevant">Results for bands</span>
   <ul>
     <% @bands.each do |band| %>
-      <li><%= band.name %> <span class="comment">(<%= band.year %>)</span></li>
+      <li><a href="<%= band_path(band) %>"><%= band.name %> <span class="comment">(<%= band.year %>)</span></a></li>
     <% end %>
   </ul>
 </section>

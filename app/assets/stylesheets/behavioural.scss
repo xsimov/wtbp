@@ -1,5 +1,10 @@
 @import 'variables';
 
+.avoid_picture {
+  @extend .title;
+  padding-right: $profilePictWidth;
+}
+
 .centered {
   text-align: center;
 }
@@ -12,6 +17,10 @@
 
 .right {
   float: right;
+}
+
+.left {
+  float: left;
 }
 
 .vertical_top {

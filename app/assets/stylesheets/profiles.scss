@@ -1,17 +1,13 @@
 @import 'variables';
 
 .profile_info {
-  
   @extend .basic_display;
-  
   p {
     margin-bottom: 0.5rem;
   }
-
   li {
     padding-left: 2rem;
   }
-
   .relevant {
     font-size: 1.2rem;
   }

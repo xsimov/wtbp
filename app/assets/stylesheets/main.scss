@@ -7,14 +7,7 @@ html {
 }
 
 article {
-  padding: 0 $navBarWidth;
-}
-
-.title {
-  font-family: $titleFont;
-  padding: 1rem;
-  font-size: 4rem;
-  color: black;
+  padding: 0 $navBarWidth*0.4 0 $navBarWidth ;
 }
 
 .welcome_search {
