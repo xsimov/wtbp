@@ -7,8 +7,12 @@ class ApplicationController < ActionController::Base
     render 'layouts/welcome'
   end
 
+  def set_current_user(musician)
+    session[:musician_id] = musician.id
+  end
+
   def current_user
-    Musician.find(session[:user_id]) unless session[:user_id].nil?
+    Musician.find(session[:musician_id]) if session[:musician_id]
   end
 
   def notice

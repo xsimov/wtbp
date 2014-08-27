@@ -42,6 +42,10 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
 
+def current_user
+  session[:user_id]
+end
+
 def create_a_band_with_musicians(n = 3)
   @band = FactoryGirl.create(:band)
   @musicians = []

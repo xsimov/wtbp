@@ -61,7 +61,7 @@ When(/^I go to the sign in \/ up page$/) do
 end
 
 When(/^I input the login info$/) do
-  within("#login") do
+  within("#signin") do
     fill_in "username", with: @musician.username
     fill_in "password", with: @musician.password
     click_button "Sign in"

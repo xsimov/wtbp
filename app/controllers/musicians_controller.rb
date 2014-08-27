@@ -9,10 +9,14 @@ class MusiciansController < ApplicationController
   end
 
   def create
-    @musician = Musician.new musician_params
-    @musician.save!
-    flash["notice"] = "Thanks for registering! Have fun discovering new music!"
-    redirect_to musician_path(@musician)
+    if password_match_confirmation?
+      @musician = Musician.new musician_params
+      @musician.save!
+      flash["notice"] = "Thanks for registering! Have fun discovering new music!"
+      redirect_to musician_path(@musician)
+    else
+      render 'new'
+    end
   rescue ActiveRecord::RecordInvalid
     render 'new'
   end
@@ -24,11 +28,10 @@ class MusiciansController < ApplicationController
 
   private
   def musician_params
-    params.require(:musician).permit(:username, :email)
+    params.require(:musician).permit(:username, :email, :password, :password_confirmation)
   end
 
-  def set_current_user(user)
-    session[:user_id]=user.id
+  def password_match_confirmation?
+    params['musician']['password'] == params['musician']['password_confirmation']
   end
-
 end
