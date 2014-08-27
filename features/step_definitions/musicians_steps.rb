@@ -3,9 +3,13 @@ Given(/^I go to the sign up page$/) do
 end
 
 When(/^I put my data$/) do
-  fill_in "Username", with: "kagdkajhdfkajhd"
-  fill_in "Email", with: "someone@somemail.som"
-  click_button "Sign up!"
+  within('#signup') do
+    fill_in "Username", with: "kagdkajhdfkajhd"
+    fill_in "Email", with: "someone@somemail.som"
+    fill_in "Password", with: "12345678"
+    fill_in "Password confirmation", with: "12345678"
+    click_button "Sign up!"
+  end
 end
 
 Then(/^I am resgistered successfully$/) do
