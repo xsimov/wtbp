@@ -21,7 +21,7 @@
   <p>Bands:
     <ul>
       <% @musician.bands.each do |band| %>
-        <li><span class="relevant"><%= band.name %></span></li>
+        <li><a href="<%= band_path(band) %>"><span class="relevant"><%= band.name %></span></a></li>
       <% end %>
     </ul>
   </p>

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       redirect_to musician_path(current_user)
     else
       flash[:alert] = "Invalid username or password"
-      redirect_to 
+      redirect_to new_musician_path
     end
   end
 
