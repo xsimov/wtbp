@@ -1,14 +1,13 @@
 Given(/^I go to a musician's bands profile$/) do
-  @musician = FactoryGirl.create(:musician)
   visit musician_path(@musician)
 end
 
 When(/^I add a band$/) do
-  click_link "Create a new band!"
+  click_link "Create a new band"
   expect(current_path).to eq(new_band_path)
 end
 
-Then(/^I enter the properties$/) do
+Then(/^I can enter the properties$/) do
   fill_in "Name", with: "Illegal Jamms"
   fill_in "Styles", with: "Ska-Jazz, Ballads"
   fill_in "Year", with: 2007
@@ -31,7 +30,7 @@ end
 
 When(/^I want to add a new member$/) do
   @musician = FactoryGirl.create(:musician)
-  click_button "Add a new member!"
+  click_button "Add a new member"
 end
 
 Then(/^I can choose it from all the registered members$/) do
@@ -43,7 +42,7 @@ end
 # end
 
 When(/^I want to add a concert$/) do
-  click_button "Add a new concert!"
+  click_button "Add a new concert"
 end
 
 Then(/^I can enter the specifications$/) do

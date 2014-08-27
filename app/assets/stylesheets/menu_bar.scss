@@ -2,7 +2,7 @@
 
 .navbar {
   position: fixed;
-  background: $corporateColor;
+  background: $corpColor;
   width: $navBarWidth;
   top: 0;
   bottom: 0;
@@ -15,7 +15,7 @@
     background: rgba(29,76,21,1);
     border-radius: 10px;
     margin: 0.5rem;
-    color: #ffffff;
+    color: $contrastColor;
   }
 
   li:hover {

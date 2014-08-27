@@ -3,6 +3,7 @@
 html {
   font-family: $allDocFonts;
   font-size: $corpFontSize;
+  background: #ffffd0;
 }
 
 article {
@@ -31,12 +32,13 @@ input {
   margin: 0.2rem 0;
   font-size: $corpFontSize;
   border-radius: 5px;
-  background: #b8cbc7;
+  background: $contrastColor;
   border-style: none;
   height: 1.6rem;
 }
 
 .button, button {
+  @extend input;
   width: auto;
   padding: 0 0.8rem;
   height: 2.5rem;

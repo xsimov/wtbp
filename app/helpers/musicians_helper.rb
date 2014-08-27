@@ -17,4 +17,8 @@ module MusiciansHelper
   def print_all_musicians
     Musician.all
   end
+
+  def is_logged_in_as?(musician)
+    return (current_user.id == musician.id) if current_user
+  end
 end

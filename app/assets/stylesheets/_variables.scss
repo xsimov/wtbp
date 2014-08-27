@@ -1,11 +1,12 @@
 $navBarWidth: 10rem;
-$corporateColor: #2a691e;
+$corpColor: #2a691e;
 $titleFont: "Economica";
 $allDocFonts: "Amaranth", "Helvetica";
 $inputFont: "Shadows Into Light";
 $corpFontSize: 1rem;
 $profilePictWidth: 15rem;
 $pictureRatio: 1.2;
+$contrastColor: #cacc7a;
 
 .basic_display {
   font-size: 1.4rem;
@@ -20,8 +21,8 @@ $pictureRatio: 1.2;
   text-align: justify;
   h1 {
     position: absolute;
-    top: -4rem;
-    font-size: 4rem;
+    top: -3.2rem;
+    font-size: 3rem;
     padding-left: 1rem;
     line-height: 4rem;
   }

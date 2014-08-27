@@ -7,7 +7,7 @@ RSpec.describe MusiciansController, :type => :controller do
     it "redirects to the user page if the data is valid" do
       musician = FactoryGirl.build(:musician)
       expect(musician).to be_valid
-      post :create, musician: musician.attributes
+      post :create, musician: musician.attributes.merge(password: "12345678", password_confirmation: "12345678")
       new_musician = Musician.find_by(email: musician.email)
       expect(response).to redirect_to(musician_path(new_musician))
     end

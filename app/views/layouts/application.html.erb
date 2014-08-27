@@ -12,11 +12,11 @@
         <a href="/musicians"><li>Musicians</li></a>
         <a href="/bands"><li>Bands</li></a>
         <a href="/concerts"><li>Concerts</li></a>
-        <a href="/musicians/new"><li>Sign up</li></a>
+        <%= sign_in_or_out %>
       </ul>
       <img src="/assets/cbaix_logo.png">
     </nav>
-    <article>
+    <article class="centered">
       <%= yield %>
     </article>
     <section>

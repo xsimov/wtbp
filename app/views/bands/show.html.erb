@@ -5,18 +5,11 @@
   <p>List of members:</p>
   <ul id="member_list">
     <% @band.get_members_with_position.each do |member| %>
-      <li><%= member.username %> - <%= member.position %></li>
+      <li><a href="<%= musician_path(member) %>"><%= member.username %> - <%= member.position %></a></li>
     <% end %>
   </ul>
-    <menu class="musician_menu">
-      <ul>
-        <li><button id="add_member">Add a new member!</button></li>
-        <li><button id="add_concert">Add a new concert!</button></li>
-      </ul>
-    </menu>
+  <%= render partial: 'menu' if this_user_is_member_of?(@band) %>
 </section>
-
-
 
 <div class="greyed" id="all_musicians">
   <div class="content">
@@ -30,11 +23,12 @@
   </div>
 </div>
 
-<div class="greyed" id="position_form"><div class="content">
-  <form>
-    <span id="musician_name"></span>'s position in the band:<br/>
-    <input type="text" id="input_position" /><br/>
-    <input type="submit" value="Set position" class="button">
-    <button id="back_to_list">Back</button>
-  </form>
-</div></div>
+<div class="greyed" id="position_form">
+  <div class="content">
+    <form>
+      <span id="musician_name"></span>'s position in the band:<br/>
+      <input type="text" id="input_position" /><br/>
+      <input type="submit" value="Set position" class="button">
+    </form>
+  </div>
+</div>

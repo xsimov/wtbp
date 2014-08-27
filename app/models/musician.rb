@@ -1,5 +1,9 @@
 class Musician < ActiveRecord::Base
 
+  has_secure_password validations: false
+  validates :password_digest, length: {minimum: 4}, on: :create
+  validates :password_digest, confirmation: true
+
   validates :username, uniqueness: true, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, presence: true, uniqueness: true
 

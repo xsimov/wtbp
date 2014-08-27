@@ -13,7 +13,7 @@ RSpec.describe BandsController, :type => :controller do
 
     before :each do
       musician = FactoryGirl.create(:musician)
-      session[:user_id] = musician.id
+      session[:musician_id] = musician.id
     end
     
     it "redirects to the band profile page if the data is valid" do
