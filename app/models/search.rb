@@ -13,7 +13,7 @@ class Search
     false
   end
 
-  def musicians(search_fields = [:first_name, :last_name])
+  def musicians(search_fields = [:first_name, :last_name, :username])
     @results = []
     search_fields.each do |parameter|
       Musician.where("#{parameter} ILIKE ?", "%#{@query}%").each do |musician|
