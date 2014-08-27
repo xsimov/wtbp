@@ -1,13 +1,15 @@
 <h1 class="title"><%= @band.name %></h1>
 <section class="profile_info">
   <img src="" alt="<%= @band.name %>" class="profile_picture">
-  <input id="band_id" type="hidden" value="<%= @band.id %>" />
-  <p>List of members:</p>
-  <ul id="member_list">
-    <% @band.get_members_with_position.each do |member| %>
-      <li><a href="<%= musician_path(member) %>"><%= member.username %> - <%= member.position %></a></li>
-    <% end %>
-  </ul>
+  <div class="pic_padding">
+    <input id="band_id" type="hidden" value="<%= @band.id %>" />
+      <p>List of members:</p>
+      <ul id="member_list">
+        <% @band.get_members_with_position.each do |member| %>
+          <li><a href="<%= musician_path(member) %>"><%= member.username %> - <%= member.position %></a></li>
+        <% end %>
+      </ul>
+    </div>
   <%= render partial: 'menu' if this_user_is_member_of?(@band) %>
 </section>
 

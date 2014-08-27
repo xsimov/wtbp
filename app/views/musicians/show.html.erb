@@ -1,29 +1,35 @@
 <h1 class="title"><%= @musician.username %></h1>
 <section class="profile_info">
   <img src="" alt="<%= @musician.username %>" class="profile_picture">
-  <p>Aliases:
-    <ul>
-      <% @musician.aliases.each do |nickname| %>
-        <li><span class="relevant"><%= nickname %></span></li>
-      <% end %>
-    </ul>
-  </p>
-  <p>First Name: <span class="relevant"><%= @musician.first_name %></span></p>
-  <p>Last Name: <span class="relevant"><%= @musician.last_name %></span></p>
-  <p>Birth date: <span class="relevant"><%= @musician.birth_date %></span></p>
-  <p>Instruments played by <%= @musician.username %>:
-    <ul>
-      <% display_instruments_list.each do |instr| %>
-        <li><span class="relevant"><%= instr.name %></span></li>
-      <% end %>
-    </ul>
-  </p>
-  <p>Bands:
-    <ul>
-      <% @musician.bands.each do |band| %>
-        <li><a href="<%= band_path(band) %>"><span class="relevant"><%= band.name %></span></a></li>
-      <% end %>
-    </ul>
-  </p>
+  <div class="pic_padding">
+    <div class="inline reset_width vertical_top">
+      <p>Aliases:
+        <ul>
+          <% @musician.aliases.each do |nickname| %>
+            <li><span class="relevant"><%= nickname %></span></li>
+          <% end %>
+        </ul>
+      </p>
+      <p>First Name: <span class="relevant"><%= @musician.first_name %></span></p>
+      <p>Last Name: <span class="relevant"><%= @musician.last_name %></span></p>
+      <p>Birth date: <span class="relevant"><%= @musician.birth_date %></span></p>
+    </div>
+    <div class="inline reset_width vertical_top">Instruments played by <%= @musician.username %>:
+      <ul>
+        <% display_instruments_list.each do |instr| %>
+          <li><span class="relevant"><%= instr.name %></span></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="inline reset_width vertical_top">
+      <p>Bands:
+        <ul>
+          <% @musician.bands.each do |band| %>
+            <li><a href="<%= band_path(band) %>"><span class="relevant"><%= band.name %></span></a></li>
+          <% end %>
+        </ul>
+      </p>
+    </div>
+  </div>
   <%= render 'menu' if is_logged_in_as?(@musician) %>
 </section>
