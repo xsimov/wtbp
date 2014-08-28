@@ -6,7 +6,8 @@ var fireFunctions = function(){
   if (document.getElementById('search') !== null) searchFieldFormat();
   if (notice.innerHTML !== '') toggleDisplay(notice.parentNode);
   if (alert.innerHTML !== '') toggleDisplay(alert.parentNode);
+  if (document.getElementById('embeddedCalendar') !== null) setupCalendar();
 }
 
 $('document').ready(fireFunctions);
-$('document').on('page:change', fireFunctions);
+// $('document').on('page:change', fireFunctions);

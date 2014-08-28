@@ -1,5 +1,10 @@
 @import 'variables';
 
+.avoid_picture {
+  @extend .title;
+  padding-right: $profilePictWidth;
+}
+
 .centered {
   text-align: center;
 }
@@ -14,6 +19,10 @@
   float: right;
 }
 
+.left {
+  float: left;
+}
+
 .vertical_top {
   vertical-align: top;
 }
@@ -25,4 +34,8 @@
 
 .pic_padding {
   padding-right: $profilePictWidth + 1rem;
+}
+
+.invisible {
+  display: none;
 }
