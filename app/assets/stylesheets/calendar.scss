@@ -1,0 +1,6 @@
+@import 'variables';
+
+.calendar_accept {
+  @extend .basic_display;
+  padding: 2rem 2rem 18rem 2rem;
+}
