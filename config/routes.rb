@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   root 'application#welcome'
   resources :musicians, only: [:new, :index, :create, :show]
   resources :bands do
-    resources :concerts, only: [:create, :show]
+    resources :concerts, only: [:new, :create, :show]
   end
   resources :sessions, only: :create
   

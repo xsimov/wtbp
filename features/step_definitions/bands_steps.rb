@@ -53,14 +53,19 @@ Then(/^I can enter the specifications$/) do
   click_button "Save concert!"
 end
 
-# Then(/^I get redirected to that concert page$/) do
-#   this_concert = Concert.find_by(place: "Cafe Rene")
-#   expect(current_path).to eq(band_concert_path(this_concert.band_id, this_concert.id))
-# end
+Then(/^I get redirected to that concert page$/) do
+  this_concert = Concert.find_by(place: "Cafe Rene")
+  expect(current_path).to eq(band_concert_path(this_concert.band_id, this_concert.id))
+end
 
 Then(/^add its position on the band$/) do
   within('#position_form') do
     fill_in "input_position", with: "Piano"
     click_button "Set position"
   end
+end
+
+Given(/^I go to a new concert page$/) do
+  @band = FactoryGirl.create(:band)
+  visit new_band_concert_path(@band.id)
 end

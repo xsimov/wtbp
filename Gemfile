@@ -40,12 +40,13 @@ gem 'unicorn'
 # gem 'omniauth-twitter'
 # gem 'devise'
 
-group :test do
-  gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
-  gem 'capybara-webkit'
 
+group :test do
   group :development do
+    gem 'cucumber-rails', :require => false
+    gem 'database_cleaner'
+    gem 'capybara-webkit'
+    gem 'jasmine-rails'
     gem 'pry'
     gem 'faker'
     gem 'rspec-rails'

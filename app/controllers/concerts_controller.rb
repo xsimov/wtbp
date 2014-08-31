@@ -3,6 +3,11 @@ class ConcertsController < ApplicationController
   def show
   end
 
+  def new
+    @band = Band.find(params[:band_id])
+    @concert = Concert.new
+  end
+
   def index
     @concerts = Concert.all
   end
