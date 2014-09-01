@@ -1,7 +1,11 @@
-function popUp(options) {
-  var message = options.message;
-  var kind = options.kind;
-  var father = options.father;
-
-  return 0;
+function popUpHTML(message) {
+  var contentDiv = document.createElement('div');
+  var insideParagraph = document.createElement('p');
+  var closeButton = document.createElement('button');
+  closeButton.id = 'closeButton';
+  contentDiv.classList.add('content');
+  insideParagraph.innerHTML = message;
+  contentDiv.appendChild(insideParagraph);
+  contentDiv.appendChild(closeButton);
+  return contentDiv;
 }
