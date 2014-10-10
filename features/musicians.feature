@@ -21,4 +21,4 @@ Feature: Musicians world
     Then I get redirected to my profile
     And I see the menu
 
-  # Scenario: As a normal user I don't see the menus
+  Scenario: As a normal user I don't see the menus
